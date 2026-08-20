@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Eclat — ресторан в сердце города</title>
+  <meta name="description"
+    content="Eclat — авторская кухня, крафтовый кофе и атмосфера тёплого вечера. Бургеры, пасты, десерты и кофе собственной обжарки." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ============ CURSOR (desktop only, see js/main.js) ============ -->
+  <div class="cursor hidden-touch" id="cursor" aria-hidden="true">
+    <span class="cursor__label" id="cursorLabel"></span>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav">
+    <div class="nav__inner container">
+      <a href="#" class="nav__logo" data-cursor="button">
+        <span class="nav__logo-script">Eclat</span>
+      </a>
+
+      <button class="nav__burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" data-cursor="button">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!--
+    Fullscreen burger overlay.
+    ВАЖНО: ровно 3 ссылки-заглушки, href="#" — подставьте свои
+    якоря/страницы позже. Ничего больше сюда добавлять не нужно.
+  -->
+  <div class="nav-overlay" id="navOverlay">
+    <nav class="nav-overlay__list">
+      <a href="#" class="nav-overlay__item" data-cursor="button">
+        <span class="nav-overlay__index">01</span>Главное
+      </a>
+      <a href="#about" class="nav-overlay__item" data-cursor="button">
+        <span class="nav-overlay__index">02</span>О нас
+      </a>
+      <a href="https://eclat1.myresto.online/ru/category/pasty" class="nav-overlay__item" data-cursor="button">
+        <span class="nav-overlay__index">03</span>Меню
+      </a>
+    </nav>
+    <div class="nav-overlay__footer">
+      <span class="section-label" style="color: var(--gold-soft)">Eclat</span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__grid container">
+        <div class="hero__copy">
+          <span class="hero__eyebrow eyebrow">— сияние</span>
+          <h1 class="hero__title" id="heroTitle">
+            <!-- буквы оборачиваются в span через JS для stagger-анимации -->
+            Eclat
+          </h1>
+          <p class="hero__sub">Кофейня, где вкус становится светом</p>
+          <p class="hero__text">Вкус , в который влюбляешься сразу.</p>
+          <div class="hero__cta">
+            <!-- CTA на меню: замените href, когда подключите существующее меню -->
+            <a href="https://eclat1.myresto.online/ru/category/pasty" class="btn" data-cursor="button">
+              Смотреть меню <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual" id="heroVisual">
+          <div class="hero__image-main" id="heroImgMain">
+            <img src="images/hero/hero-main.svg" alt="Éclat — фирменное блюдо" />
+          </div>
+          <div class="hero__image-secondary" id="heroImgSecondary">
+            <img src="images/hero/hero-secondary.svg" alt="Éclat — интерьер" />
+          </div>
+
+          <!-- Фирменный элемент: вращающийся золотой медальон (CSS 3D, без Three.js) -->
+          <div class="hero__medallion" id="heroMedallion">
+            <div class="medallion">
+              <div class="medallion__ring" id="medallionRing">
+                <svg viewBox="0 0 200 200" class="medallion__svg">
+                  <defs>
+                    <path id="medallionCircle" d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+                  </defs>
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.6" />
+                  <circle cx="100" cy="100" r="62" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.4" />
+                  <text fill="var(--gold)" font-size="9.5" letter-spacing="3">
+                    <textPath href="#medallionCircle" startOffset="0%">
+                      Eclat · FR. СИЯНИЕ · Eclat · FR. СИЯНИЕ ·
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="medallion__core"><span>E</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__info container">
+        <div class="hero__info-item">
+          <span class="section-label">Адрес</span>
+          <p>г. Черкесск, ул. Калантаевского, 37А</p>
+        </div>
+        <div class="hero__info-item">
+          <span class="section-label">Часы работы</span>
+          <p>08:00 – 23:00</p>
+        </div>
+        <div class="hero__info-item hero__scroll-hint">
+          <span class="section-label">Листайте</span>
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="container about__grid">
+        <div class="about__images">
+          <div class="about__img-main reveal">
+            <img src="images/about/about-main.svg" alt="Éclat — атмосфера зала" />
+          </div>
+          <div class="about__img-small reveal">
+            <img src="images/about/about-small-1.svg" alt="Éclat — деталь блюда" />
+          </div>
+        </div>
+
+        <div class="about__content">
+          <span class="eyebrow reveal">— о нас</span>
+          <h2 class="about__title reveal">Кухня, за которой стоит характер</h2>
+          <p class="about__text reveal">
+            Eclat — это не про громкое меню, а про точность в каждой детали: подовый хлеб
+            для бургеров, паста ручной раскатки, зерно, которое обжаривают для нас за
+            городом. Мы работаем каждый день, чтобы вечер получился тёплым.
+          </p>
+
+          <div class="about__stat reveal">
+            <span class="about__stat-number">15</span>
+            <div class="about__stat-copy">
+              <span class="about__stat-unit">часов</span>
+              <span class="about__stat-label">открыты для гостей ежедневно</span>
+            </div>
+          </div>
+
+          <div class="about__img-small about__img-small--mobile reveal">
+            <img src="images/about/about-small-2.svg" alt="Éclat — деталь интерьера" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ATMOSPHERE (pinned horizontal gallery) ============ -->
+    <section class="atmosphere" id="atmosphere">
+      <div class="atmosphere__heading container">
+        <span class="eyebrow">— атмосфера</span>
+        <h2 class="atmosphere__title">Вечер, который хочется продлить</h2>
+      </div>
+      <div class="atmosphere__track" id="atmosphereTrack">
+        <div class="atmosphere__spacer" aria-hidden="true"></div>
+
+        <figure class="atmosphere__item" data-cursor="view">
+          <img src="images/interior/interior-1.svg" alt="Зал" loading="lazy" />
+          <figcaption>Зал</figcaption>
+        </figure>
+
+        <figure class="atmosphere__item" data-cursor="view">
+          <img src="images/interior/interior-2.svg" alt="Бар" loading="lazy" />
+          <figcaption>Бар</figcaption>
+        </figure>
+
+        <figure class="atmosphere__item" data-cursor="view">
+          <img src="images/interior/interior-3.svg" alt="Подача" loading="lazy" />
+          <figcaption>Подача</figcaption>
+        </figure>
+
+        <figure class="atmosphere__item" data-cursor="view">
+          <img src="images/interior/interior-4.svg" alt="Свет" loading="lazy" />
+          <figcaption>Свет</figcaption>
+        </figure>
+
+        <figure class="atmosphere__item" data-cursor="view">
+          <img src="images/interior/interior-5.svg" alt="Вечер" loading="lazy" />
+          <figcaption>Вечер</figcaption>
+        </figure>
+
+        <div class="atmosphere__spacer" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONCEPT / ADVANTAGES ============ -->
+    <section class="concept" id="concept">
+      <div class="container">
+        <div class="concept__heading">
+          <span class="eyebrow">— концепция</span>
+          <h2 class="concept__title">На чём мы не экономим</h2>
+        </div>
+
+        <div class="concept__list">
+          <div class="concept__row">
+            <span class="concept__num">01</span>
+            <h3 class="concept__item-title">Свежие продукты</h3>
+            <p class="concept__item-text">Закупка каждый день — ничего не хранится ради экономии.</p>
+          </div>
+          <div class="concept__row concept__row--alt">
+            <span class="concept__num">02</span>
+            <h3 class="concept__item-title">Авторская кухня</h3>
+            <p class="concept__item-text">Рецепты, которые не встретить в соседнем заведении.</p>
+          </div>
+          <div class="concept__row">
+            <span class="concept__num">03</span>
+            <h3 class="concept__item-title">Кофе своей обжарки</h3>
+            <p class="concept__item-text">Зерно обжаривается для Éclat и больше нигде.</p>
+          </div>
+          <div class="concept__row concept__row--alt">
+            <span class="concept__num">04</span>
+            <h3 class="concept__item-title">Атмосфера</h3>
+            <p class="concept__item-text">Свет, музыка и сервис подобраны под один вечер.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="container contact__grid">
+        <div class="contact__copy">
+          <span class="eyebrow reveal" style="color: var(--gold-soft)">— где мы</span>
+          <h2 class="contact__title reveal">Ждём вас сегодня вечером</h2>
+
+          <div class="contact__details reveal">
+            <div>
+              <span class="section-label">Адрес</span>
+              <p>г. Черкесск, ул. Калантаевского, 37А</p>
+            </div>
+            <div>
+              <span class="section-label">Часы работы</span>
+              <p>08:00 – 23:00 — ежедневно, без выходных</p>
+            </div>
+            <div>
+              <span class="section-label">Телефон</span>
+              <p>+7 (928) 626-67-77</p>
+            </div>
+            <div>
+              <span class="section-label">Instagram</span>
+              <a href="https://www.instagram.com/eclat_cherkessk?igsh=MTBpOWU3YnRlYm5o" class="instagram-link">eclat_cherkessk (Нажми - больше атмосферы здесь)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__map reveal" data-cursor="view">
+          <div class="contact__map-placeholder">
+            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/e_klat/168035549774/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Э'клат</a><a href="https://yandex.ru/maps/1104/cherkessk/category/coffee_shop/35193114937/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Кофейня в Черкесске</a><a href="https://yandex.ru/maps/1104/cherkessk/category/cafe/184106390/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Кафе в Черкесске</a><iframe src="https://yandex.ru/map-widget/v1/?filter=alternate_vertical%3ARequestWindow&ll=42.051329%2C44.221922&mode=search&oid=168035549774&ol=biz&sctx=ZAAAAAgBEAAaKAoSCXJO7KF9BkVAEXKIuDmVHEZAEhIJo1nZPuQtdz8R8Q9bejTVYz8iBgABAgMEBSgKOABA0AhIAWJscmVhcnI9c2NoZW1lX0xvY2FsL0dlby9BZHZlcnRzL1JlYXJyYW5nZUJ5QXVjdGlvbi9TaW1pbGFyT3Jnc0xpc3RBdWN0aW9uL0NhbmRpZGF0ZVNlYXJjaFJhZGl1c0luTWV0ZXJzPTEwMDAwYmxyZWFycj1zY2hlbWVfTG9jYWwvR2VvL0FkdmVydHMvUmVhcnJhbmdlQnlBdWN0aW9uL1NpbWlsYXJPcmdzTGlzdEF1Y3Rpb24vVXNlSGlnaFJlY2FsbEhhcmRSdWJyaWNDbGFzc2lmaWVyPTFqAnJ1nQHNzMw9oAEAqAEAvQEowGmGwgEGzoTM%2FfEEggIb0Y3QutC70LDRgiDRh9C10YDQutC10YHRgdC6igIAkgIEMTEwNJoCDGRlc2t0b3AtbWFwcw%3D%3D&sll=42.051329%2C44.221922&sspn=0.017760%2C0.007597&tab=reviews&text=%D1%8D%D0%BA%D0%BB%D0%B0%D1%82%20%D1%87%D0%B5%D1%80%D0%BA%D0%B5%D1%81%D1%81%D0%BA&z=16.75" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+            <span class="contact__map-note">Мы в Yandex Картах !</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">Eclat</span>
+      </div>
+
+      <nav class="footer__nav">
+        <a href="#" data-cursor="button">Главное</a>
+        <a href="#about" data-cursor="button">О нас</a>
+        <a href="https://eclat1.myresto.online/ru/category/pasty" data-cursor="button">Меню</a>
+      </nav>
+
+      <div class="footer__contact">
+        <p>г. Черкесск, ул. Калантаевского, 37А</p>
+        <p>+7 (928) 626-67-77</p>
+        <a href="https://www.instagram.com/eclat_cherkessk?igsh=MTBpOWU3YnRlYm5o">eclat_cherkessk</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>© 2026 Eclat. Все права защищены.</span>
+    </div>
+  </footer>
+
+  <!-- GSAP + ScrollTrigger via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

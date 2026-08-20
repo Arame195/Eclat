@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d9c9a8"/>
+      <stop offset="100%" stop-color="#b89a6c"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="700" fill="url(#g)"/>
+  <circle cx="350.0" cy="294.0" r="112.0" fill="none" stroke="#3a1216" stroke-width="1.5" opacity="0.35"/>
+  <text x="50%" y="302.0" text-anchor="middle" font-family="Georgia, serif" font-size="35.0" fill="#3a1216" opacity="0.55">ECLAT</text>
+  <text x="50%" y="55%" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="31.5" letter-spacing="2" fill="#3a1216" opacity="0.85">O NAS - FOTO 1</text>
+  <text x="50%" y="60%" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15.399999999999999" fill="#3a1216" opacity="0.45">700x700 placeholder</text>
+</svg>
