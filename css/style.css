@@ -552,7 +552,6 @@ h1, h2, h3, h4, p {
 }
 
 .about__images {
-  position: relative;
   display: grid;
 
   grid-template-columns: 1fr;
